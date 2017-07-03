@@ -29,9 +29,6 @@ function validateForm(){
 		}
 		email();
 
-		//antes de seguir, se les agrega una clase nueva a los contenedores de la contraseña y el select, pues ambos tienen la misma clase, para así poder distinguirlos
-
-
 		//contraseña
 		function contrasena(){
 			var idContrasena = $("#input-password").val();
@@ -40,6 +37,17 @@ function validateForm(){
 			}
 		}
 		contrasena();
+
+		//select
+		function selection(){
+			var eleccion = $("select");
+			jQuery.each(eleccion,function(i,val){
+				if (val.value == 0){
+					$(".form-group").next().append('<span>Debe escoger una de las opciones.<span>');
+				}
+			});
+		}
+		selection();
 
 	});
 }
