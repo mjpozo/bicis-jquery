@@ -29,5 +29,17 @@ function validateForm(){
 		}
 		email();
 
+		//antes de seguir, se les agrega una clase nueva a los contenedores de la contraseña y el select, pues ambos tienen la misma clase, para así poder distinguirlos
+
+
+		//contraseña
+		function contrasena(){
+			var idContrasena = $("#input-password").val();
+			if (idContrasena=="123456" || idContrasena=="098765" || idContrasena=="password" || !(/^(?=.*\d).{6,}$/).test(idContrasena)){
+				$(".form-group").first().append('<span>Contraseña inválida. Ingrese nuevamente.');
+			}
+		}
+		contrasena();
+
 	});
 }
