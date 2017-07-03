@@ -20,5 +20,14 @@ function validateForm(){
 		}
 		lastName();
 
+		//email
+		function email(){
+			var idCorreo = $("#input-email").val();
+			if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(idCorreo)){
+				$(".email-container").append('<span>Correo inválido. Ingrese nuevamente.');
+			}
+		}
+		email();
+
 	});
 }
