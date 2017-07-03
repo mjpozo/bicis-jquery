@@ -12,6 +12,13 @@ function validateForm(){
 		name();
 
 		//apellido
-		
+		function lastName(){
+			var idApellido = $("#lastname").val();
+			if (!(/^[A-Z][a-z]{3,19}$/).test(idApellido)){
+				$(".lastname-container").append('<span>Apellido inválido. Ingrese nuevamente.');
+			}
+		}
+		lastName();
+
 	});
 }
