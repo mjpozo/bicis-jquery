@@ -35,14 +35,27 @@ function validateForm(){
 		})();
 
 		//select
-		//POR ALGUNA RAZÓN ACÁ ME GUARDA EL SPAN EN EL DIV CONTENEDOR DE TWITTER
+		//POR ALGUNA RAZÓN ACÁ ME GUARDA EL SPAN VACIO EXTRA EN EL SELECT Y OTRO CON CONTENIDO EN EL DIV CONTENEDOR DE TWITTER (yo creo que next() es el que está interfiriendo)
+		//los tres métodos hacen lo mismo
 		(function selection(){
-			var eleccion = $("select");
-			jQuery.each(eleccion,function(i,val){
-				if (val.value == 0){
+			/*var eleccion = $("select");
+			$.each(eleccion,function(index,element){
+				if (element.value == 0){
 					$(".form-group").next().append('<span>Debe escoger una de las opciones.<span>');
 				}
+			})*/
+
+			//aca se cambio el seleccionador original por el select y un after, y eso quito el span del contenedor de twitter, pero sigue imprimiendo un span vacio despues del select
+			$("select").each(function(index,element){
+				if (element.value == 0){
+					$("select").after('<span>Debe escoger una de las opciones.<span>');
+				}
 			});
+			/*jQuery.each(eleccion,function(index,element){
+				if (element.value == 0){
+					$(".form-group").next().append('<span>Debe escoger una de las opciones.<span>');
+				}
+			});*/
 		})();
 
 	});
